@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Array & While</h1>
+    <h2><a href="">WEB</a></h2>
+    <ul>
+        <li><a href="">HTML</a></li>
+        <li><a href="">CSS</a></li>
+        <li><a href="">JAVASCRIPT</a></li>
+    </ul>
+    <button
+            onclick="
+            if(this.innerHTML === 'Dark Mode') {
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector('body').style.color = 'white';
+                const arr = document.querySelectorAll('a');
+                let index = 0;
+                while(index < arr.length) {
+                    arr[index].style.color = 'white'
+                    index++
+                }
+                this.innerHTML = 'Light Mode'
+            } else {
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector('body').style.color = 'black'
+                const arr = document.querySelectorAll('a');
+                let index = 0;
+                while(index < arr.length) {
+                    arr[index].style.color = 'black'
+                    index++
+                }
+                this.innerHTML = 'Dark Mode'
+            }
+        "
+        >Dark Mode</button>
+</body>
+</html>

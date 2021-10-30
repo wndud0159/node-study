@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Function</h1>
+    <h2><a href="">WEB</a></h2>
+    <ul>
+        <li><a href="">HTML</a></li>
+        <li><a href="">CSS</a></li>
+        <li><a href="">JAVASCRIPT</a></li>
+    </ul>
+
+    <input id="first" type="text" style="width:30px;"> + <input id="second" type="text" style="width:30px;"> = <span id="result"></span> <br>
+    <button onclick="sum(document.querySelector('#first').value, document.querySelector('#second').value)">클릭</button><br>
+    <button onclick="darkLightHandler(this)">Dark Mode</button>
+        <script>
+            function sum(first, second) {
+                document.querySelector('#result').innerHTML = parseInt(first) + parseInt(second);
+            }
+
+            function darkLightHandler(element) {
+                if(element.innerHTML === 'Dark Mode') {
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector('body').style.color = 'white';
+                const arr = document.querySelectorAll('a');
+                let index = 0;
+                while(index < arr.length) {
+                    arr[index].style.color = 'white'
+                    index++
+                }
+                element.innerHTML = 'Light Mode'
+                } else {
+                    document.querySelector('body').style.backgroundColor = 'white';
+                    document.querySelector('body').style.color = 'black'
+                    const arr = document.querySelectorAll('a');
+                    let index = 0;
+                    while(index < arr.length) {
+                        arr[index].style.color = 'black'
+                        index++
+                    }
+                    element.innerHTML = 'Dark Mode'
+                }
+            }
+            let num = 2;
+            for (let index1 = 2; index1 <= 9; index1++) {
+                    for (let index2 = 1; index2 <= 9; index2++) {
+                        console.log(`${index1} * ${index2} = ${index1 * index2}`)
+                    }
+            }
+        </script>
+</body>
+</html>

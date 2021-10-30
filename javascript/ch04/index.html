@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../tailwind.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex h-screen flex-col justify-center items-center">
+        <div class="text-4xl mb-10">Object</div>
+        <div class="">create</div>
+        <script>
+            let obj = {
+                "programmer": 'egoing',
+                designer: 'leezche',
+            }
+            document.write(`programmer : ${obj.programmer}<br>`)
+            document.write(`designer : ${obj.designer}<br>`)
+            obj.bookkeeper = 'duru'
+            document.write(`bookkeeper : ${obj.bookkeeper}<br>`)
+            obj['data scientist'] = 'teaho'
+            document.write(`data scientist : ${obj['data scientist']}<br>`)
+        </script>
+        <div class="mt-5">iterate</div>
+        <script>
+            for(key in obj) {
+                document.write(`${key} : ${obj[key]}<br>`)
+            }
+        </script>
+        <div>
+            <input id="add" class="border mt-10" type="text">
+            <button onclick="addEventHandler(document.querySelector('#add').value)">추가</button><br>
+            <input id="delete" class="border mt-3" type="text">
+            <button onclick="deleteEventHandler(document.querySelector('#delete').value)">삭제</button>
+        </div>
+        <div class="border-4 border-green-500 mt-10 px-3 py-3 relative w-1/2 flex justify-center items-center">
+            <div class="absolute -top-3 z-30 bg-white">장바구니</div>
+            <div class="space-x-3" id="result"></div>
+        </div>
+    </div>
+    <script>
+        let bucket = {}
+        const addEventHandler = (element) => {
+            bucket[element] = element;
+            iterate();
+        }
+        const iterate = () => {
+            let currentDiv = document.querySelector('#result')
+            currentDiv.innerHTML = ''
+            for(key in bucket) {
+                let span = document.createElement('span')
+                const content = document.createTextNode(`${bucket[key]}`)
+                span.appendChild(content)
+                currentDiv.appendChild(span)
+            }
+            document.querySelector('#add').value = ''
+        }
+        const deleteEventHandler = (element) => {
+            delete bucket[element];
+            iterate()
+            document.querySelector('#delete').value = ''
+        }
+
+    </script>
+</body>
+</html>

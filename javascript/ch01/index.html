@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello javascript</h1>
+        <button
+            onclick="
+            if(this.innerHTML === 'Dark Mode') {
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector('body').style.color = 'white'
+                this.innerHTML = 'Light Mode'
+            } else {
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector('body').style.color = 'black'
+                this.innerHTML = 'Dark Mode'
+            }
+        "
+        >Dark Mode</button>
+        
+    </body>
+</html>
